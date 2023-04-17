@@ -37,3 +37,27 @@ print(numeros)  # output: [3, 5, 10, 7]
 
 2) Implementando filas em Python usando tipos abstratos de dados.
 
+
+a) Crie uma fila que armazene as pessoas que estão esperando em uma fila. Em
+seguida, crie uma função que remova a primeira pessoa da fila.
+
+fila = []
+
+
+fila.append("João")
+fila.append("Maria")
+fila.append("José")
+
+
+primeiro = fila.pop(0)
+
+print(primeiro)
+
+
+
+b) Crie uma fila vazia que armazene números inteiros. Em seguida, crie uma função
+que adicione um número inteiro no final da fila e outra que remova o primeiro
+número da fila.
+
+
+
