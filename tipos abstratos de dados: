@@ -59,5 +59,94 @@ b) Crie uma fila vazia que armazene números inteiros. Em seguida, crie uma fun�
 que adicione um número inteiro no final da fila e outra que remova o primeiro
 número da fila.
 
+from collections import deque
+
+fila = deque()
+
+
+def adicionar_fila(numero):
+    fila.append(numero)
+
+
+from collections import deque
+
+fila = deque()
+
+def adicionar_fila(numero):
+    fila.append(numero)
+
+def remover_fila():
+    if fila:
+        fila.popleft()
+
+3) Implementando pilhas em Python usando tipos abstratos de dados.
+
+pilha_paginas_visitadas = []
+
+def adicionar_pagina(pagina):
+    pilha_paginas_visitadas.append(pagina)
+
+def remover_ultima_pagina():
+    if pilha_paginas_visitadas:
+        pilha_paginas_visitadas.pop()
+
+pilha_numeros_inteiros = []
+
+def adicionar_numero(numero):
+    pilha_numeros_inteiros.append(numero)
+
+def remover_numero():
+    if pilha_numeros_inteiros:
+        pilha_numeros_inteiros.pop()
+
+4) Implementando árvores binárias em Python usando tipos abstratos de dados.
+
+class Pessoa:
+    def __init__(self, nome, idade, sexo, pai=None, mae=None):
+        self.nome = nome
+        self.idade = idade
+        self.sexo = sexo
+        self.pai = pai
+        self.mae = mae
+
+def encontrar_pessoa(raiz, nome):
+    if raiz is None:
+        return None
+    if raiz.nome == nome:
+        return raiz
+    pessoa_encontrada = encontrar_pessoa(raiz.pai, nome)
+    if pessoa_encontrada is None:
+        pessoa_encontrada = encontrar_pessoa(raiz.mae, nome)
+    return pessoa_encontrada
+
+raiz = Pessoa('Avô', 70, 'M')
+raiz.pai = Pessoa('Pai', 40, 'M', pai=raiz)
+raiz.mae = Pessoa('Tia', 50, 'F', pai=raiz)
+raiz.pai.pai = Pessoa('Avô paterno', 80, 'M')
+raiz.pai.mae = Pessoa('Avó paterna', 75, 'F')
+raiz.mae.pai = Pessoa('Avô materno', 90, 'M')
+raiz.mae.mae = Pessoa('Avó materna', 85, 'F')
+
+def encontrar_relacao(pessoa1, pessoa2):
+    if pessoa1 is None or pessoa2 is None:
+        return None
+    if pessoa1.nome == pessoa2.nome:
+        return 'mesma pessoa'
+    if pessoa1.pai is not None and pessoa1.pai.nome == pessoa2.nome:
+        return 'pai'
+    if pessoa1.mae is not None and pessoa1.mae.nome == pessoa2.nome:
+        return 'mãe'
+    relacao_pai = encontrar_relacao(pessoa1.pai, pessoa2)
+    if relacao_pai is not None:
+        return 'avô paterno' if relacao_pai == 'pai' else 'avó paterna'
+    relacao_mae = encontrar_relacao(pessoa1.mae, pessoa2)
+    if relacao_mae is not None:
+        return 'avô materno' if relacao_mae == 'pai' else 'avó materna'
+    return None
+
+
+
+
+
 
 
